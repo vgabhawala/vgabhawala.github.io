@@ -3,7 +3,6 @@
 # Vedant Gabhawala  
 **M.S. Mechanical Engineering at Stanford University** 
 
-
 **B.S. Mechanical Engineering and Economics Minor at Johns Hopkins University**  
 [gabhawalavedant@gmail.com](mailto:gabhawalavedant@gmail.com)  Phone no: +1 (410) 469 0808  
 
