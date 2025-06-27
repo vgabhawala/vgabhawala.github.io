@@ -1,9 +1,11 @@
 <div align="center">
 
 # Vedant Gabhawala  
-### Bachelor of Science in Mechanical Engineering and Economics Minor at Johns Hopkins University
-### Master of Science in Mechanical Engineering at Stanford University
-[Email](mailto:gabhawalavedant@gmail.com) • Phone Number: +1 (410) 469 0808
+**Master of Science in Mechanical Engineering @ Stanford University**  
+Bachelor of Science in Mechanical Engineering + Economics Minor @ Johns Hopkins University  
+📧 [gabhawalavedant@gmail.com](mailto:gabhawalavedant@gmail.com) • 📞 +1 (410) 469 0808  
+[🔗 GitHub](https://github.com/vgabhawala) • [🔗 LinkedIn](https://linkedin.com/in/vedantgabhawala)
+
 </div>
 
 # Hi, I'm Vedant
