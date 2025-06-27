@@ -6,6 +6,7 @@
 📧 [gabhawalavedant@gmail.com](mailto:gabhawalavedant@gmail.com) • 📞 +1 (410) 469 0808  
 [🔗 GitHub](https://github.com/vgabhawala) • [🔗 LinkedIn](https://linkedin.com/in/vedantgabhawala)
 
+
 </div>
 
 ---
