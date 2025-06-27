@@ -1,10 +1,10 @@
 <div align="center">
 
-# 👨‍🔧 Vedant Gabhawala  
-**M.S. Mechanical Engineering @ Stanford University**  
-**B.S. Mechanical Engineering + Economics Minor @ Johns Hopkins University**  
-📧 [gabhawalavedant@gmail.com](mailto:gabhawalavedant@gmail.com) • 📞 +1 (410) 469 0808  
-[🔗 GitHub](https://github.com/vgabhawala) • [🔗 LinkedIn](https://linkedin.com/in/vedantgabhawala)
+# Vedant Gabhawala  
+**M.S. Mechanical Engineering at Stanford University** 
+**B.S. Mechanical Engineering and Economics Minor at Johns Hopkins University**  
+[gabhawalavedant@gmail.com](mailto:gabhawalavedant@gmail.com)  Phone no: +1 (410) 469 0808  
+
 
 
 </div>
