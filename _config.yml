@@ -1,4 +1,7 @@
 theme: jekyll-theme-minimal
-title: ""
-description: ""
+title: null
+description: null
 show_downloads: false
+logo: null
+github:
+  is_project_page: false
