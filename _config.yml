@@ -1,6 +1,21 @@
-theme: jekyll-theme-cayman
-title: ""
-description: ""
-show_downloads: false
-github:
-  is_project_page: false
+title: Vedant Gabhawala
+email: gabhawalavedant@gmail.com
+description: >-
+  Aspiring mechanical engineer focused on design processes, product development, and engineering innovation.
+baseurl: ""
+url: "https://vgabhawala.github.io"
+
+# Set theme if using Jekyll, else leave this blank
+# theme: minima  # Remove this if you're using pure HTML and not Jekyll
+
+author:
+  name: Vedant Gabhawala
+  email: gabhawalavedant@gmail.com
+
+# Disable future blog post generation
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      published: false
