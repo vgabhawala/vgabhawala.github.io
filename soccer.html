@@ -24,7 +24,7 @@
       margin-top: 30px;
     }
 
-    img, video {
+    img {
       width: 100%;
       margin: 15px 0;
       border-radius: 4px;
@@ -64,95 +64,88 @@
       line-height: 1.6;
       padding-left: 20px;
     }
+
+    video {
+      width: 100%;
+      display: block;
+      margin: 15px 0;
+      border-radius: 6px;
+    }
   </style>
 </head>
 <body>
 
   <h1>Desktop Soccer Game</h1>
-  <h3 style="color: #174475;">Project Timeline: March 2024 – May 2024</h3>
+  <h3 style="color: #164A84;">Project Timeline: March 2024 – May 2024</h3>
 
-  <p>
-    This project aimed to create a desktop-scale soccer game that combines mechatronics, mechanical design and user interactivity.
-    The game simulates a mini soccer field where a user-controlled kicker competes against a moving goalkeeper, mounted on a linear actuator.
-    It provided a hands-on opportunity to integrate design, fabrication, and programming skills in a playful, engaging format.
-  </p>
+  <p>This project aimed to create a desktop-scale soccer game that combines mechatronics, mechanical design and user interactivity. 
+     The game simulates a mini soccer field where a user-controlled kicker competes against a moving goalkeeper, mounted on a linear actuator. 
+     It provided a hands-on opportunity to integrate design, fabrication, and programming skills in a playful, engaging format.</p>
 
   <h3>Components</h3>
-  <ul>
-    <li>1× Arduino Uno</li>
-    <li>1× HiLetgo L298N Motor Driver</li>
-    <li>1× NEMA11 stepper motor Linear Rail Actuator</li>
-    <li>1× Gikfun 2" 4Ω 3W Speaker</li>
-    <li>1× 3D Printed Flexible Kicker Mechanism</li>
-    <li>1× Laser-Cut Game Base and Structure</li>
-    <li>1× LED Display</li>
-    <li>1× Goal Frame with printed goalkeeper</li>
-    <li>1× Breadboard</li>
-    <li>Jumper wires, resistors, capacitors</li>
-    <li>Power supply (5V for logic, 12V for actuator)</li>
-  </ul>
-
   <div class="figure-flex">
-    <img src="images/sketch_soccer.jpg" alt="Sketch of Proposed Idea">
-    <p class="caption">Figure 1. Sketch of Proposed Idea</p>
+    <ul>
+      <li>1× Arduino Uno</li>
+      <li>1× HiLetgo L298N Motor Driver</li>
+      <li>1× NEMA11 stepper motor Linear Rail Actuator</li>
+      <li>1× Gikfun 2" 4Ω 3W Speaker</li>
+      <li>1× 3D Printed Flexible Kicker Mechanism</li>
+      <li>1× Laser-Cut Game Base and Structure</li>
+      <li>1× LED Display</li>
+      <li>1× Goal Frame with printed goalkeeper</li>
+      <li>1× Breadboard</li>
+      <li>Jumper wires, resistors, capacitors</li>
+      <li>Power supply (5V for logic, 12V for actuator)</li>
+    </ul>
+    <img src="images/soccer_sketch.png" alt="Sketch of Proposed Idea">
   </div>
+  <p class="caption">Figure 1. Sketch of Proposed Idea</p>
 
   <h3>Ideation</h3>
-  <p>
-    The original goal for the desktop soccer game was to create a fully portable and compact system that could be easily set up and played anywhere.
-    To test this, I initially constructed a standalone base using cardboard. By using the desk itself as the foundation for the game,
-    I eliminated the need for a bulky base and reduced the total number of components, resulting in a cleaner, more minimal footprint.
-  </p>
-
+  <p>The original goal for the desktop soccer game was to create a fully portable and compact system that could be easily set up and played anywhere. 
+  To test this, I initially constructed a standalone base using cardboard. By using the desk itself as the foundation for the game, 
+  I eliminated the need for a bulky base and reduced the total number of components, resulting in a cleaner, more minimal footprint.</p>
+  
   <div class="figure-flex">
-    <img src="images/cardboard.jpg" alt="Cardboard Design">
-    <img src="images/desktop_setup.jpg" alt="Final Design Using Desktop">
+    <img src="images/cardboard_design.jpg" alt="Cardboard design">
+    <img src="images/final_design_frame.jpg" alt="Final design frame">
   </div>
-  <p class="caption">Figure 2. Cardboard Design &mdash; Figure 3. Final Design Using Desktop</p>
+  <p class="caption">Figure 2. Cardboard Design &nbsp;&nbsp;&nbsp;&nbsp; Figure 3. Final Design Using Desktop</p>
 
   <h3>Design Process</h3>
-  <p>
-    The final design featured a 3D printed kicking mechanism and a ball holder base to keep the ball in place before each kick.
-    After testing various materials, TPU (Thermoplastic Polyurethane) was chosen for its flexibility and durability.
-    The kicker’s infill density was reduced to enhance its springiness and improve shot power.
-    The goal was also 3D printed and designed to align with the actuator-driven goalkeeper.
-    Field boundaries were laser cut from acrylic, allowing for quick assembly and a clean, portable design.
-  </p>
+  <p>The final design featured a 3D printed kicking mechanism and a ball holder base to keep the ball in place before each kick. 
+  After testing various materials, TPU (Thermoplastic Polyurethane) was chosen for its flexibility and durability. 
+  The kicker’s infill density was reduced to enhance its springiness and improve shot power. 
+  The goal was also 3D printed and designed to align with the actuator-driven goalkeeper. 
+  Field boundaries were laser cut from acrylic, allowing for quick assembly and a clean, portable design.</p>
 
-  <h3>Prototype Testing</h3>
-  <video controls style="width: 100%;">
+  <video controls>
     <source src="videos/soccer_test.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <p class="caption">Video 1. Prototype Tested</p>
 
   <h3>Electronics Added</h3>
-  <p>
-    To support two-player gameplay, the system included an electronic scoreboard powered by an Arduino Uno and displayed on an LCD screen.
-    A custom 3D printed enclosure housed a set of mechanical buttons that allowed players to manually increase their score or reset it at any time.
-    The buttons were wired to the Arduino, which updated the screen in real time.
-    The modular casing made it easy to service or modify the electronics, and the Arduino-based system allowed for future expansion—
-    such as adding automatic scoring or sound feedback.
-  </p>
+  <p>To support two-player gameplay, the system included an electronic scoreboard powered by an Arduino Uno and displayed on an LCD screen. 
+  A custom 3D printed enclosure housed a set of mechanical buttons that allowed players to manually increase their score or reset it at any time. 
+  The buttons were wired to the Arduino, which updated the screen in real time. The modular casing made it easy to service or modify the electronics, 
+  and the Arduino-based system allowed for future expansion—such as adding automatic scoring or sound feedback.</p>
 
   <div class="figure-flex">
     <video controls>
       <source src="videos/scoreboard_demo.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <img src="images/scoreboard_circuit.jpg" alt="Scoreboard Circuit">
+    <img src="images/scoreboard_circuit.jpg" alt="Scoreboard circuit">
   </div>
-  <p class="caption">Video 2. Working of Scoreboard — Figure 4. Circuit for Scoreboard</p>
+  <p class="caption">Video 2. Working of Scoreboard &nbsp;&nbsp;&nbsp;&nbsp; Figure 4. Circuit for Scoreboard</p>
 
-  <p>
-    To add a dynamic challenge to the game, a linear actuator was installed behind the goalpost,
-    controlled by a motor driver and programmed to move the goalkeeper back and forth at random intervals.
-    This movement made scoring more difficult and added an unpredictable, interactive element to each play.
-    The actuator was synchronized with the rest of the system using the Arduino, ensuring reliable and responsive motion.
-  </p>
+  <p>To add a dynamic challenge to the game, a linear actuator was installed behind the goalpost, controlled by a motor driver and programmed to move the goalkeeper back and forth at random intervals. 
+  This movement made scoring more difficult and added an unpredictable, interactive element to each play. 
+  The actuator was synchronized with the rest of the system using the Arduino, ensuring reliable and responsive motion.</p>
 
-  <video controls style="width: 100%;">
-    <source src="videos/final_goalkeeper.mp4" type="video/mp4">
+  <video controls>
+    <source src="videos/goalkeeper_actuator.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <p class="caption">Video 3. Final Design with Linear Actuator</p>
