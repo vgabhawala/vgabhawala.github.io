@@ -24,12 +24,6 @@
       margin-top: 30px;
     }
 
-    img {
-      width: 100%;
-      margin: 15px 0;
-      border-radius: 4px;
-    }
-
     .figure-flex {
       display: flex;
       align-items: flex-start;
@@ -40,16 +34,17 @@
 
     .figure-flex img,
     .figure-flex video {
-      max-width: 100%;
+      max-width: 300px;
       height: auto;
       border-radius: 4px;
-      flex: 1;
+      flex-shrink: 0;
     }
 
     .figure-flex p {
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.6;
       flex: 1;
+      min-width: 250px;
     }
 
     .caption {
@@ -65,18 +60,48 @@
       padding-left: 20px;
     }
 
-    video {
+    .video-full {
       width: 100%;
-      display: block;
-      margin: 15px 0;
-      border-radius: 6px;
+      max-width: 100%;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    img {
+      border-radius: 4px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .side-by-side {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .side-by-side figure {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    figure img, figure video {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    figure figcaption {
+      font-size: 13px;
+      color: #555;
+      margin-top: 6px;
     }
   </style>
 </head>
 <body>
 
   <h1>Desktop Soccer Game</h1>
-  <h3 style="color: #164A84;">Project Timeline: March 2024 – May 2024</h3>
+  <h3>Project Timeline: March 2024 – May 2024</h3>
 
   <p>This project aimed to create a desktop-scale soccer game that combines mechatronics, mechanical design and user interactivity. 
      The game simulates a mini soccer field where a user-controlled kicker competes against a moving goalkeeper, mounted on a linear actuator. 
@@ -97,58 +122,67 @@
       <li>Jumper wires, resistors, capacitors</li>
       <li>Power supply (5V for logic, 12V for actuator)</li>
     </ul>
-    <img src="images/soccer_sketch.png" alt="Sketch of Proposed Idea">
+    <img src="images/sketch.png" alt="Sketch">
   </div>
-  <p class="caption">Figure 1. Sketch of Proposed Idea</p>
+
+  <div class="side-by-side">
+    <figure>
+      <img src="images/cardboard_design.png" alt="Cardboard Design">
+      <figcaption>Figure 2. Cardboard Design</figcaption>
+    </figure>
+    <figure>
+      <img src="images/final_frame.png" alt="Final Design">
+      <figcaption>Figure 3. Final Design Using Desktop</figcaption>
+    </figure>
+  </div>
 
   <h3>Ideation</h3>
   <p>The original goal for the desktop soccer game was to create a fully portable and compact system that could be easily set up and played anywhere. 
-  To test this, I initially constructed a standalone base using cardboard. By using the desk itself as the foundation for the game, 
-  I eliminated the need for a bulky base and reduced the total number of components, resulting in a cleaner, more minimal footprint.</p>
-  
-  <div class="figure-flex">
-    <img src="images/cardboard_design.jpg" alt="Cardboard design">
-    <img src="images/final_design_frame.jpg" alt="Final design frame">
-  </div>
-  <p class="caption">Figure 2. Cardboard Design &nbsp;&nbsp;&nbsp;&nbsp; Figure 3. Final Design Using Desktop</p>
+     To test this, I initially constructed a standalone base using cardboard. By using the desk itself as the foundation for the game, I eliminated the need 
+     for a bulky base and reduced the total number of components, resulting in a cleaner, more minimal footprint.</p>
 
   <h3>Design Process</h3>
-  <p>The final design featured a 3D printed kicking mechanism and a ball holder base to keep the ball in place before each kick. 
-  After testing various materials, TPU (Thermoplastic Polyurethane) was chosen for its flexibility and durability. 
-  The kicker’s infill density was reduced to enhance its springiness and improve shot power. 
-  The goal was also 3D printed and designed to align with the actuator-driven goalkeeper. 
-  Field boundaries were laser cut from acrylic, allowing for quick assembly and a clean, portable design.</p>
+  <p>The final design featured a 3D printed kicking mechanism and a ball holder base to keep the ball in place before each kick. After testing various materials, 
+     TPU (Thermoplastic Polyurethane) was chosen for its flexibility and durability. The kicker’s infill density was reduced to enhance its springiness and improve 
+     shot power. The goal was also 3D printed and designed to align with the actuator-driven goalkeeper. Field boundaries were laser cut from acrylic, allowing for 
+     quick assembly and a clean, portable design.</p>
 
-  <video controls>
-    <source src="videos/soccer_test.mp4" type="video/mp4">
+  <video class="video-full" controls>
+    <source src="videos/prototype.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <p class="caption">Video 1. Prototype Tested</p>
+  <div class="caption">Video 1. Prototype Tested</div>
 
   <h3>Electronics Added</h3>
-  <p>To support two-player gameplay, the system included an electronic scoreboard powered by an Arduino Uno and displayed on an LCD screen. 
-  A custom 3D printed enclosure housed a set of mechanical buttons that allowed players to manually increase their score or reset it at any time. 
-  The buttons were wired to the Arduino, which updated the screen in real time. The modular casing made it easy to service or modify the electronics, 
-  and the Arduino-based system allowed for future expansion—such as adding automatic scoring or sound feedback.</p>
+  <p>To support two-player gameplay, the system included an electronic scoreboard powered by an Arduino Uno and displayed on an LCD screen. A custom 3D printed 
+     enclosure housed a set of mechanical buttons that allowed players to manually increase their score or reset it at any time. The buttons were wired to the 
+     Arduino, which updated the screen in real time. The modular casing made it easy to service or modify the electronics, and the Arduino-based system allowed 
+     for future expansion—such as adding automatic scoring or sound feedback.</p>
 
-  <div class="figure-flex">
-    <video controls>
-      <source src="videos/scoreboard_demo.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <img src="images/scoreboard_circuit.jpg" alt="Scoreboard circuit">
+  <div class="side-by-side">
+    <figure>
+      <video controls>
+        <source src="videos/scoreboard.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <figcaption>Video 2. Working of Scoreboard</figcaption>
+    </figure>
+    <figure>
+      <img src="images/circuit_scoreboard.png" alt="Circuit">
+      <figcaption>Figure 4. Circuit for Scoreboard</figcaption>
+    </figure>
   </div>
-  <p class="caption">Video 2. Working of Scoreboard &nbsp;&nbsp;&nbsp;&nbsp; Figure 4. Circuit for Scoreboard</p>
 
-  <p>To add a dynamic challenge to the game, a linear actuator was installed behind the goalpost, controlled by a motor driver and programmed to move the goalkeeper back and forth at random intervals. 
-  This movement made scoring more difficult and added an unpredictable, interactive element to each play. 
-  The actuator was synchronized with the rest of the system using the Arduino, ensuring reliable and responsive motion.</p>
+  <h3>Goalkeeper Integration</h3>
+  <p>To add a dynamic challenge to the game, a linear actuator was installed behind the goalpost, controlled by a motor driver and programmed to move the goalkeeper 
+     back and forth at random intervals. This movement made scoring more difficult and added an unpredictable, interactive element to each play. The actuator was 
+     synchronized with the rest of the system using the Arduino, ensuring reliable and responsive motion.</p>
 
-  <video controls>
-    <source src="videos/goalkeeper_actuator.mp4" type="video/mp4">
+  <video class="video-full" controls>
+    <source src="videos/actuator.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <p class="caption">Video 3. Final Design with Linear Actuator</p>
+  <div class="caption">Video 3. Final Design with Linear Actuator</div>
 
 </body>
 </html>
