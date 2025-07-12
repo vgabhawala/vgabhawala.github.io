@@ -43,6 +43,40 @@
       margin-top: 10px;
       color: #444;
     }
+
+    .image-caption {
+      font-size: 14px;
+      text-align: center;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-top: 20px;
+    }
+
+    .figure-flex {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      align-items: flex-start;
+    }
+
+    .figure-flex img {
+      flex: 1 1 300px;
+    }
+
+    .figure-flex p {
+      flex: 1 1 300px;
+      font-size: 15px;
+    }
+
   </style>
 </head>
 <body>
@@ -59,6 +93,18 @@
   <p>Our final design involved an underwater camera system divided into two parts. 
      The “above water” component described the display and the interactive elements that visitors would control and physically interact with. 
      The “underwater” component described the camera, enclosure, and structural elements that would capture and send imagery to the above water display.</p>
+
+  <h3>Ideation</h3>
+
+  <img src="camera_sketches.jpg" alt="Camera sketches">
+  <div class="image-caption">Figure 4: Concept sketches showing the internal and external components of an underwater camera unit.</div>
+
+  <div class="figure-flex">
+    <img src="camera_assembly.jpg" alt="Camera enclosure photo">
+    <p><strong>Figure 5.</strong> We designed and tested a waterproof cylindrical (PVC) camera enclosure to ensure image clarity and water resistance in saltwater conditions. 
+      The cylindrical design used a 4” PVC tube with a sealed end cap, a TPU adapter with O-rings, and a transparent polymer window secured with corrosion-resistant hardware. 
+      Marine epoxy was applied for added sealing. Each enclosure was submerged in the harbor with internal cameras to evaluate image quality and waterproofing performance.</p>
+  </div>
 
 </body>
 </html>
