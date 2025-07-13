@@ -27,10 +27,6 @@
       justify-content: center;
       margin-top: 10px;
     }
-    .image-row img {
-      max-width: 100%;
-      height: auto;
-    }
     .image-half {
       width: 48%;
     }
@@ -57,27 +53,43 @@
   <div class="image-row">
     <img class="image-full" src="images/concept_sketches.jpg" alt="Sketches">
   </div>
-  <div class="caption">Figure 1: Concept sketches showing the internal and external components of an underwater camera unit.</div>
+  <div class="caption">Figure 4: Concept sketches showing the internal and external components of an underwater camera unit.</div>
 
   <div class="image-row">
     <img class="image-half" src="images/pvc_camera.jpg" alt="PVC Camera">
     <div class="text-half">
-      <p><b>Figure 2.</b> We designed and tested a waterproof cylindrical (PVC) camera enclosure to ensure image clarity and water resistance in saltwater conditions. The cylindrical design used a 4” PVC tube with a sealed end cap, a TPU adapter with O-rings, and a transparent polymer window secured with corrosion-resistant hardware. Marine epoxy was applied for added sealing. Each enclosure was submerged in the harbor with internal cameras to evaluate image quality and waterproofing performance.</p>
+      <p><b>Figure 5.</b> We designed and tested a waterproof cylindrical (PVC) camera enclosure to ensure image clarity and water resistance in saltwater conditions. The cylindrical design used a 4” PVC tube with a sealed end cap, a TPU adapter with O-rings, and a transparent polymer window secured with corrosion-resistant hardware. Marine epoxy was applied for added sealing. Each enclosure was submerged in the harbor with internal cameras to evaluate image quality and waterproofing performance.</p>
     </div>
   </div>
 
   <p>We designed an underwater camera system using a clear cast acrylic tube (11.8” length, 4” ID, 4.5” OD) sealed with anodized aluminum end caps. The bottom cap is solid, while the top cap features five openings—four sealed with pressure relief valves and one fitted with a WetLink Penetrator for a waterproof wire pass-through. The enclosure houses a 360° Ricoh Theta V camera and is secured to a stable, table-like structure using a custom 3D-printed ABS clamp. This structure clips into the fibergrate base of the wetland channel to prevent movement.</p>
 
   <div class="image-row">
-    <img class="image-full" src="images/wetlink_penetrator.jpg" alt="Wetlink Penetrator & CAD Assembly">
+    <img class="image-full" src="images/weblink_penetrator.jpg" alt="Wetlink Penetrator & CAD Assembly">
   </div>
-  <div class="caption">Figure 3: Finalized CAD design in image on the left and WetLink Penetrator on the right.</div>
+  <div class="caption">Figure 6: Finalized CAD design in image on the left and WetLink Penetrator on the right.</div>
 
   <div class="image-row">
-    <img class="image-full" src="images/cad_mount.jpg" alt="CAD Mount">
+    <img class="image-half" src="images/cad_mount.jpg" alt="CAD Mount Render">
     <img class="image-half" src="images/assembled_mount.jpg" alt="Assembled Mount Photo">
   </div>
-  <div class="caption">Figure 4. In order to properly position the camera within the capsule (i.e., maximize the view of the underwater while minimizing the view of the capsule, endcaps, supports, etc.) we developed a 3D printed mount that the camera rests upon inside the capsule. The bottom disk houses a spot to place the FingerBot, an automatic button presser that can be controlled via the Smart Life app through Bluetooth. The app offers the capability for users to set an assigned schedule for the FingerBot so that it will turn the camera on at a designated time, then once again turn it off at a later set time.</div>
+  <div class="caption">Figure 7. In order to properly position the camera within the capsule (i.e., maximize the view of the underwater while minimizing the view of the capsule, endcaps, supports, etc.) we developed a 3D printed mount that the camera rests upon inside the capsule. The bottom disk houses a spot to place the FingerBot, an automatic button presser that can be controlled via the Smart Life app through Bluetooth. The app offers the capability for users to set assigned schedules for the FingerBot so that it will turn the camera on at a designated time, then once again turn it off at a later time.</div>
+
+  <h3>Final Design</h3>
+  <p>To prototype the interactive display, we built a wooden frame using 2×4s and a TV mount, focusing on user testing to determine ideal viewing dimensions. The frame included an adjustable-height table and side/top plywood panels to reduce glare. A joystick was mounted in a position that mimicked its final intended placement.</p>
+  <p>On the software side, we used OpenCV to process and display 360° camera footage on a 2D monitor, initially prototyping with sample footage and live webcam input. The joystick served as the control interface for navigating the display.</p>
+
+  <div class="image-row">
+    <img class="image-half" src="images/final_system.jpg" alt="Final Camera Enclosure">
+    <img class="image-half" src="images/display_station.jpg" alt="Prototype Display Setup">
+  </div>
+  <div class="caption">Figure 8. Finalized Camera System and Display Used</div>
+
+  <h3>Bill of Materials</h3>
+  <div class="image-row">
+    <img class="image-full" src="images/bill_of_materials.jpg" alt="Bill of Materials Table">
+  </div>
+  <div class="caption">Figure 9. Bill of Materials outlining all key mechanical and electronic components used in the final design.</div>
 
 </body>
 </html>
