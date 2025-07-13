@@ -54,8 +54,9 @@
   </style>
 </head>
 <body>
-
-  <a class="back-link" href="index.html">← Projects</a>
+  <div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
+    <a href="index.html" style="text-decoration: none; font-weight: bold; font-size: 16px; color: #1f64b1;">← Projects</a>
+  </div>
 
   <h1>Solar Powered Blinds Operator</h1>
   <h2 style="color:#1f64b1;">Project Timeline: October 2023 – December 2023</h2>
@@ -86,11 +87,16 @@
 <h3>Final Design</h3>
 <p>A 3D printed casing was designed to neatly house the Arduino, IR receiver, and supporting circuitry. Additionally, a custom servo attachment was created to securely connect the servomotor to the blinds, ensuring smooth and consistent operation.</p>
 
-<div class="image-row">
-  <img src="images/final_design_board.jpg" alt="Final Electronics Mount">
-  <img src="images/final_design_solar.jpg" alt="Solar Panel Unit">
+<div style="display: flex; justify-content: space-between; gap: 20px; margin-top: 20px;">
+  <div style="flex: 1;">
+    <img src="images/final_design_board.jpg" alt="Blinds Circuit" style="width: 100%; height: auto; border-radius: 4px;">
+    <div style="text-align: center; font-style: italic; font-size: 0.9em;">Figure 2. The Final Design for the Blinds Operator</div>
+  </div>
+  <div style="flex: 1;">
+    <img src="images/final_design_solar.jpg" alt="Solar Panel" style="width: 100%; height: auto; border-radius: 4px;">
+  </div>
 </div>
-<div class="caption">Figure 2. The Final Design for the Blinds Operator</div>
+
 
 <video class="image-full" controls>
   <source src="videos/blinds_demo.mp4" type="video/mp4">
