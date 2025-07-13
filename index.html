@@ -3,138 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vedant Gabhawala - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <title>Projects</title>
   <style>
     body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #fff;
-      color: #111;
+      font-family: Arial, sans-serif;
+      margin: 40px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+      background-color: #f8f8f8;
     }
 
-    .header {
+    h1 {
       text-align: center;
+      color: #222;
     }
 
-    .header h1 {
-      font-size: 32px;
-      font-weight: 600;
-      letter-spacing: 2px;
-    }
-
-    .header h2 {
-      font-size: 18px;
-      font-weight: 300;
-      margin: 5px;
-    }
-
-    .contact {
-      margin-top: 10px;
-    }
-
-    .contact p {
-      margin: 4px 0;
-      font-weight: 300;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    .project-grid {
+      display: flex;
+      flex-wrap: wrap;
       gap: 20px;
+      justify-content: center;
       margin-top: 40px;
     }
 
-    @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .card {
-      background-color: #f5f5f5;
-      border-radius: 8px;
+    .project-card {
+      width: 30%;
+      min-width: 280px;
+      background: #dee1cf;
+      border-radius: 12px;
       overflow: hidden;
       text-align: center;
-      transition: transform 0.2s ease;
-      box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    .card:hover {
-      transform: scale(1.02);
-    }
-
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      background-color: #ddd;
-    }
-
-    .card-title {
-      background-color: #CED2C0; /* sage green */
-      color: #111;
-      padding: 12px;
-      font-weight: 600;
-      height: 60px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      line-height: 1.2;
-      overflow-wrap: break-word;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 350px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      color: black;
+      transition: transform 0.2s ease;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .project-card h3 {
+      margin: 16px 0;
+      font-size: 1.2em;
+    }
+
+    @media screen and (max-width: 900px) {
+      .project-card {
+        width: 45%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .project-card {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <h1>Vedant Gabhawala</h1>
-    <h2>MS in Mechanical Engineering at Stanford University</h2>
-    <h2>BS in Mechanical Engineering at Johns Hopkins University</h2>
-    <p>An aspiring design-oriented mechanical engineer seeking to deepen my knowledge in design processes and production.</p>
-    <div class="contact">
-      <p>📞 +1 410 469 0808</p>
-      <p>✉️ gabhawalavedant@gmail.com</p>
-    </div>
-  </div>
+  <h1>Projects</h1>
 
-  <div class="grid">
-    <!-- Underwater Camera System FIRST -->
-    <a href="camera.html">
-      <div class="card">
-        <img src="images/camera.jpg" alt="360 Underwater Camera System">
-        <div class="card-title">360 Underwater Camera System</div>
-      </div>
+  <div class="project-grid">
+    <a href="camera.html" class="project-card">
+      <img src="images/camera.jpg" alt="360 Underwater Camera System" />
+      <h3>360 Underwater Camera System</h3>
     </a>
-
-    <!-- Mechatronics Soccer Game SECOND -->
-    <a href="soccer.html">
-      <div class="card">
-        <img src="images/final_design_frame.jpg" alt="Mechatronics Soccer Game">
-        <div class="card-title">Mechatronics Soccer Game</div>
-      </div>
+    <a href="soccer.html" class="project-card">
+      <img src="images/soccer.jpg" alt="Mechatronics Soccer Game" />
+      <h3>Mechatronics Soccer Game</h3>
+    </a>
+    <a href="blinds.html" class="project-card">
+      <img src="images/blinds.jpg" alt="Solar Powered Blinds Operator" />
+      <h3>Solar Powered Blinds Operator</h3>
     </a>
   </div>
 
-    <a href="solar_blinds.html">
-      <div class="card">
-      <img class="project-image" src="images/solar_blinds.jpg" alt="Solar Powered Blinds Operator" />
-      <div class="card-title">Solar Powered Blinds Operator</div>
-    </a>
-  </div>
-  
 </body>
 </html>
