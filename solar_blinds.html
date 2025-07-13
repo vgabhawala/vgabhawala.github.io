@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solar Powered Blinds Operator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px auto;
+      max-width: 1000px;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #222;
+    }
+    .caption {
+      font-style: italic;
+      text-align: center;
+      margin-top: 8px;
+      font-size: 0.95em;
+    }
+    .back-link {
+      font-size: 1em;
+      margin-bottom: 20px;
+      display: inline-block;
+      text-decoration: none;
+      background: #eee;
+      padding: 6px 12px;
+      border-radius: 5px;
+      color: #333;
+    }
+    .back-link:hover {
+      background: #ddd;
+    }
+    .wrap-container {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .wrap-text {
+      flex: 1 1 50%;
+    }
+    .wrap-image {
+      flex: 1 1 45%;
+      max-width: 400px;
+    }
+    .wrap-image img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back-link" href="index.html">← Projects</a>
+
+  <h1>Solar Powered Blinds Operator</h1>
+  <h2 style="color:#1f64b1;">Project Timeline: October 2023 – December 2023</h2>
+
+  <div class="wrap-container">
+    <div class="wrap-text">
+      <p>The project is a dual mode automatic and manual window blind operator. A photoresistor provides automated functionality. When a certain light intensity threshold is surpassed, the servo will automatically operate the blinds. In addition to this, the blinds can also be operated manually through an IR remote.</p>
+
+      <p>This IR remote has buttons that allow the user to set the blinds at 1 of 3 preset angles, a power button to toggle between auto/manual modes, and arrows that increment the angle by 10 degrees in either direction. An Arduino is used to control the photoresistor, IR receiver, and hobby servomotor used to operate the blinds.</p>
+
+      <h3>Components</h3>
+      <ul>
+        <li>1x Solar Panel</li>
+        <li>1x Voltage Regulator</li>
+        <li>1x Arduino Uno</li>
+        <li>1x SG90 Servo Motor</li>
+        <li>1x IR Receiver</li>
+        <li>1x Photoresistor</li>
+      </ul>
+    </div>
+
+    <div class="wrap-image">
+      <img src="images/solar_blinds_circuit.jpg" alt="Circuit Diagram for Blinds Project">
+      <div class="caption">Figure 1. The circuit used to power the operator can be seen.</div>
+    </div>
+  </div>
+
+</body>
+</html>
