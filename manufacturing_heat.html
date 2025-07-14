@@ -14,16 +14,17 @@
     }
     h1, h2, h3, h4 {
       color: #222;
+      margin-bottom: 0.5em;
     }
     h2 {
       color: #1f64b1;
-      margin-bottom: 24px;
     }
     .caption {
       font-style: italic;
       text-align: center;
-      margin-top: 8px;
       font-size: 0.95em;
+      margin-top: 6px;
+      margin-bottom: 24px;
     }
     .back-link {
       font-size: 1em;
@@ -38,24 +39,6 @@
     .back-link:hover {
       background: #ddd;
     }
-    .wrap-container {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-    .wrap-image {
-      flex: 1 1 45%;
-      max-width: 400px;
-    }
-    .wrap-image img {
-      width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-    }
-    .wrap-text {
-      flex: 1 1 50%;
-    }
     img {
       width: 100%;
       max-height: 450px;
@@ -68,54 +51,69 @@
       gap: 12px;
       justify-content: center;
       align-items: flex-start;
-      margin-top: 20px;
+      margin-top: 12px;
+      margin-bottom: 4px;
       flex-wrap: wrap;
     }
     .side-by-side img {
-      height: 350px;
+      height: 400px;
       object-fit: cover;
       flex: 1 1 45%;
     }
   </style>
 </head>
 <body>
+
   <div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
     <a href="index.html" style="text-decoration: none; font-weight: bold; font-size: 16px; color: #1f64b1;">← Projects</a>
   </div>
 
-  <h1>Manufacturing & Heat Transfer Projects</h1>
-
-  <h3>Project 1: Manufacturing – Stirling Engine</h3>
+  <h1>Project 1: Manufacturing – Sterling Engine</h1>
   <h2>Project Timeline: January 2022 – May 2022</h2>
 
   <p>Designed and fabricated a fully functional Stirling engine to demonstrate principles of thermodynamics and mechanical motion. The project emphasized precision design using CAD, application of Geometric Dimensioning and Tolerancing (GD&T), and hands-on manufacturing using a variety of machining methods.</p>
 
-  <h4>Components</h4>
-  <p><b>Flywheel:</b> Precision-machined aluminum disk turned on a lathe, then chamfered and balanced to ensure smooth engine operation.</p>
-  <p><b>Crank Arm & Linkages:</b> Brass components milled to spec, drilled and reamed for fits, and deburred for smooth mechanical articulation.</p>
-  <p><b>Power Piston & Cylinder:</b> Turned from aluminum and steel with polished surfaces to minimize leakage and friction.</p>
-  <p><b>Base Plate & Brackets:</b> Fabricated using shearing and press brake operations. Holes were CNC drilled for accurate alignment.</p>
+  <h3>Components</h3>
 
-  <img src="images/sterling_front.jpg" alt="Front view of Stirling Engine">
-  <div class="caption">Figure 1. Front view of the Stirling Engine</div>
+  <p><b>Flywheel (precision-machined aluminum disk)</b><br>
+  The flywheel, made from aluminum, was machined on a lathe starting with rough turning and facing operations to define the profile. A boring operation was then used to create a precise center hole for press-fitting onto the crankshaft. The outer edge was chamfered and deburred, and the flywheel was carefully balanced to ensure smooth rotation during engine operation.</p>
 
-  <img src="images/sterling_iso.jpg" alt="Isometric view of Stirling Engine">
-  <div class="caption">Figure 2. Isometric view of the Stirling Engine</div>
+  <p><b>Crank Arm and Linkages</b><br>
+  The crank arm and linkage components, cut from brass, were first rough-shaped and then milled to final dimensions using vertical and horizontal milling operations. Hole features were drilled with a precision drill press, with some features reamed to achieve the required fit tolerance. Manual filing and deburring ensured clean edges and smooth articulation during rotation.</p>
 
-  <h3>Project 2: Heat Exchanger</h3>
+  <p><b>Power Piston and Displacer Cylinder</b><br>
+  The power piston and displacer cylinder were turned on the lathe from aluminum and steel stock. These parts required tight roundness and surface finish, which were achieved through fine passes and additional polishing or lapping where needed to reduce friction and leakage.</p>
+
+  <p><b>Base Plate and Support Brackets</b><br>
+  The base plate and support brackets were fabricated from sheet metal using a shear and press brake for accurate bends. Mounting holes were created using either a CNC mill or drill press, and parts were aligned with high accuracy to support the moving assembly.</p>
+
+  <img src="images/sterling_front.jpg" alt="Front view of the Sterling Engine">
+  <div class="caption">Figure 1. Front view of the Sterling Engine</div>
+
+  <img src="images/sterling_iso.jpg" alt="Isometric view of the Sterling Engine">
+  <div class="caption">Figure 2. Isometric view of the Sterling Engine</div>
+
+  <h1>Project 2: Heat Exchanger Project</h1>
   <h2>Project Timeline: August 2022 – December 2022</h2>
 
-  <p>Fabricated, tested, and evaluated the performance of a counterflow heat exchanger. A custom 3D printed baffle was incorporated to enhance thermal transfer efficiency and turbulence within the shell side.</p>
+  <p>Fabricated, tested, and evaluated the performance of a counterflow heat exchanger, incorporating a custom 3D-printed baffle to improve thermal transfer efficiency. The goal was to design a compact system capable of enhancing heat exchange between two water streams moving in opposite directions.</p>
 
-  <h4>Components</h4>
-  <p><b>PVC Shell:</b> Bandsaw-cut and deburred. Precision-drilled inlet/outlet holes. Epoxy-sealed press-fit fittings ensured leak-free flow paths.</p>
-  <p><b>Internal Copper Coil:</b> Helically bent using a tube bender. Even spacing and no kinks to maintain pressure and maximize surface area.</p>
-  <p><b>3D Printed Baffle:</b> Designed in Fusion 360 with spiral cutouts, 3D printed with PLA, sanded to fit snugly inside the PVC pipe and induce turbulence.</p>
+  <h3>Components</h3>
 
-  <div style="display: flex; gap: 12px; justify-content: center; align-items: flex-start; margin-top: 20px;">
-    <img src="images/baffle.jpg" alt="Custom 3D Printed Baffle" style="height: 450px; object-fit: cover;">
-    <img src="images/assembly.jpg" alt="Components of the Heat Exchanger" style="height: 450px; object-fit: cover;">
+  <p><b>Main PVC Shell</b><br>
+  The main shell of the heat exchanger was constructed using a PVC pipe, cut to length using a bandsaw and finished with a deburring tool to smooth the inner and outer edges. Holes were drilled into the PVC body using a drill press to accommodate the inlet and outlet fittings. These holes were carefully measured and aligned to ensure leak-free connections and minimal flow disruption. Fittings were bonded in place using epoxy adhesive and reinforced to handle fluid pressure.</p>
+
+  <p><b>Internal Copper Tubing</b><br>
+  The internal coil, responsible for carrying one of the working fluids, was made from copper tubing. The tube was bent into a tight helical coil using a manual tube bender to maximize surface area within the PVC shell. Care was taken to avoid kinking and to maintain consistent spacing between turns, ensuring optimal heat transfer and minimal pressure loss.</p>
+
+  <p><b>3D Printed Baffle</b><br>
+  To direct fluid flow and promote turbulence, a custom baffle was designed in Fusion 360 and 3D printed using PLA filament. The baffle featured a vertical cylindrical geometry with a helical pattern of cutouts, designed to channel the shell-side fluid along a longer, swirling path, thereby increasing contact with the copper tubing. After printing, the baffle was cleaned and post-processed with light sanding to remove support artifacts and ensure it fit securely inside the PVC pipe.</p>
+
+  <div class="side-by-side">
+    <img src="images/baffle.jpg" alt="Custom baffle 3D print">
+    <img src="images/assembly.jpg" alt="Heat exchanger components">
   </div>
-  <div class="caption">Figure 3. 3D printed baffle on the left and final heat exchanger assembly on the right</div>
+  <div class="caption">Figure 3. Custom baffle on the left and different components on the right</div>
+
 </body>
 </html>
