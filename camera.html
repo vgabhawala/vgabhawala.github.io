@@ -2,96 +2,166 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Keeps zoom & proper sizing on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Underwater Camera System</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px auto;
-      max-width: 1000px;
-      line-height: 1.6;
+    :root{
+      --brand:#1f64b1;
+      --text:#222;
+      --maxw:1000px;
+      --pad:clamp(16px, 3.5vw, 32px);
     }
-    h1, h2, h3 {
-      color: #222;
+
+    /* Base layout */
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin:0;
+      color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
-    .caption {
-      font-style: italic;
-      text-align: center;
-      margin-top: 8px;
-      font-size: 0.95em;
+    .container{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:calc(var(--pad) + 24px) var(--pad) var(--pad);
     }
-    .image-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 10px;
+
+    h1{ font-size:clamp(28px, 4.2vw, 40px); margin:0 0 8px; }
+    h2{ font-size:clamp(18px, 2.8vw, 24px); margin:0 0 16px; color:var(--brand); }
+    h3{ font-size:clamp(18px, 2.6vw, 22px); margin:28px 0 8px; }
+    p{ font-size:clamp(15px, 2.2vw, 17px); margin:12px 0; }
+
+    /* Back link (touch friendly) */
+    .back-link{
+      position:fixed; inset:16px auto auto 16px;
+      z-index:1000;
+      background:rgba(255,255,255,0.9);
+      border:1px solid #e8e8e8;
+      padding:8px 12px;
+      border-radius:10px;
+      text-decoration:none; font-weight:700;
+      color:var(--brand);
+      backdrop-filter:saturate(150%) blur(6px);
     }
-    .image-half {
-      width: 48%;
+    @media (hover:hover){
+      .back-link:hover{ box-shadow:0 2px 10px rgba(0,0,0,.08); }
     }
-    .image-full {
-      width: 100%;
+
+    /* Media defaults */
+    img{
+      display:block;
+      width:100%;
+      height:auto;
+      border-radius:8px;
     }
-    .text-half {
-      width: 48%;
+
+    .caption{
+      font-style:italic;
+      text-align:center;
+      margin-top:8px;
+      font-size:clamp(13px, 2vw, 15px);
+      color:#444;
+      padding:0 6px;
+    }
+
+    /* Flexible rows */
+    .image-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin-top:10px;
+    }
+
+    /* Proportional columns for desktop; stack on phones */
+    .image-half, .text-half{ flex:1 1 48%; min-width:260px; }
+    .image-full{ flex:1 1 100%; }
+    .image-65{ flex: 0 1 65%; min-width:300px; }
+    .image-35{ flex: 1 1 32%; min-width:220px; }
+
+    /* Improve readability of inline figure numbers in paragraphs */
+    b{ font-weight:600; }
+
+    /* Spacing utilities */
+    .mt-8{ margin-top:8px; }
+    .mt-12{ margin-top:12px; }
+
+    /* Small screens: reduce outer padding, stack columns to full width */
+    @media (max-width: 768px){
+      .container{ padding:calc(var(--pad) + 12px) var(--pad); }
+      .image-half, .text-half, .image-65, .image-35{ flex-basis:100%; min-width:0; }
+    }
+
+    /* Very small screens: tighten margins a bit */
+    @media (max-width: 420px){
+      .container{ padding:56px 14px 18px; }
+      .back-link{ inset:12px auto auto 12px; padding:7px 10px; font-size:14px; }
+    }
+
+    /* Optional: respectful dark mode */
+    @media (prefers-color-scheme: dark){
+      body{ background:#0f1113; color:#e9e9ea; }
+      .caption{ color:#cfcfd2; }
+      .back-link{ background:rgba(20,22,24,0.7); border-color:#2a2d31; }
     }
   </style>
 </head>
 <body>
-  <div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
-    <a href="index.html" style="text-decoration: none; font-weight: bold; font-size: 16px; color: #1f64b1;">← Projects</a>
-  </div>
-  <h1>Underwater Camera System</h1>
-  <h2 style="color:#1f64b1;">Project Timeline: August 2023 – May 2024</h2>
+  <a class="back-link" href="index.html" aria-label="Back to Projects">← Projects</a>
 
-  <p>The National Aquarium opened a Harbor Wetlands exhibit to recreate Baltimore’s historical salt marshes. To educate visitors about life under water, the aquarium asked our team to design an interactive exhibit that offers an immersive underwater view of the Harbor Wetlands.</p>
+  <main class="container">
+    <h1>Underwater Camera System</h1>
+    <h2>Project Timeline: August 2023 – May 2024</h2>
 
-  <h3>Background</h3>
-  <p><i>I led a team of 2 Mechanical Engineers and 2 Electrical Engineers.</i></p>
-  <p>Our final design involved an underwater camera system divided into two parts. The “above water” component described the display and the interactive elements that visitors would control and physically interact with. The “underwater” component described the camera, enclosure, and structural elements that would capture and send imagery to the above water display.</p>
+    <p>The National Aquarium opened a Harbor Wetlands exhibit to recreate Baltimore’s historical salt marshes. To educate visitors about life under water, the aquarium asked our team to design an interactive exhibit that offers an immersive underwater view of the Harbor Wetlands.</p>
 
-  <h3>Ideation</h3>
-  <div class="image-row">
-    <img class="image-full" src="images/concept_sketches.jpg" alt="Sketches">
-  </div>
-  <div class="caption">Figure 4: Concept sketches showing the internal and external components of an underwater camera unit.</div>
+    <h3>Background</h3>
+    <p><i>I led a team of 2 Mechanical Engineers and 2 Electrical Engineers.</i></p>
+    <p>Our final design involved an underwater camera system divided into two parts. The “above water” component described the display and the interactive elements that visitors would control and physically interact with. The “underwater” component described the camera, enclosure, and structural elements that would capture and send imagery to the above water display.</p>
 
-  <div class="image-row">
-    <img class="image-half" src="images/pvc_camera.jpg" alt="PVC Camera">
-    <div class="text-half">
-      <p><b>Figure 5.</b> We designed and tested a waterproof cylindrical (PVC) camera enclosure to ensure image clarity and water resistance in saltwater conditions. The cylindrical design used a 4” PVC tube with a sealed end cap, a TPU adapter with O-rings, and a transparent polymer window secured with corrosion-resistant hardware. Marine epoxy was applied for added sealing. Each enclosure was submerged in the harbor with internal cameras to evaluate image quality and waterproofing performance.</p>
+    <h3>Ideation</h3>
+    <div class="image-row">
+      <img class="image-full" src="images/concept_sketches.jpg" alt="Concept sketches of underwater camera internal and external components" loading="lazy" />
     </div>
-  </div>
+    <div class="caption">Figure 4: Concept sketches showing the internal and external components of an underwater camera unit.</div>
 
-  <p>We designed an underwater camera system using a clear cast acrylic tube (11.8” length, 4” ID, 4.5” OD) sealed with anodized aluminum end caps. The bottom cap is solid, while the top cap features five openings—four sealed with pressure relief valves and one fitted with a WetLink Penetrator for a waterproof wire pass-through. The enclosure houses a 360° Ricoh Theta V camera and is secured to a stable, table-like structure using a custom 3D-printed ABS clamp. This structure clips into the fibergrate base of the wetland channel to prevent movement.</p>
+    <div class="image-row">
+      <img class="image-half" src="images/pvc_camera.jpg" alt="PVC cylindrical camera enclosure prototype" loading="lazy" />
+      <div class="text-half">
+        <p><b>Figure 5.</b> We designed and tested a waterproof cylindrical (PVC) camera enclosure to ensure image clarity and water resistance in saltwater conditions. The cylindrical design used a 4” PVC tube with a sealed end cap, a TPU adapter with O-rings, and a transparent polymer window secured with corrosion-resistant hardware. Marine epoxy was applied for added sealing. Each enclosure was submerged in the harbor with internal cameras to evaluate image quality and waterproofing performance.</p>
+      </div>
+    </div>
 
-  <div class="image-row">
-    <img class="image-full" src="images/wetlink_penetrator.jpg" alt="Wetlink Penetrator & CAD Assembly">
-  </div>
-  <div class="caption">Figure 6: Finalized CAD design in image on the left and WetLink Penetrator on the right.</div>
+    <p>We designed an underwater camera system using a clear cast acrylic tube (11.8” length, 4” ID, 4.5” OD) sealed with anodized aluminum end caps. The bottom cap is solid, while the top cap features five openings—four sealed with pressure relief valves and one fitted with a WetLink Penetrator for a waterproof wire pass-through. The enclosure houses a 360° Ricoh Theta V camera and is secured to a stable, table-like structure using a custom 3D-printed ABS clamp. This structure clips into the fibergrate base of the wetland channel to prevent movement.</p>
 
-  <div class="image-row">
-    <img class="image-65" src="images/cad_mount.jpg" alt="CAD Mount Render">
-    <img class="image-35" src="images/assembled_mount.jpg" alt="Assembled Mount Photo">
-  </div>
-  <div class="caption">Figure 7. In order to properly position the camera within the capsule (i.e., maximize the view of the underwater while minimizing the view of the capsule, endcaps, supports, etc.) we developed a 3D printed mount that the camera rests upon inside the capsule. The bottom disk houses a spot to place the FingerBot, an automatic button presser that can be controlled via the Smart Life app through Bluetooth. The app offers the capability for users to set assigned schedules for the FingerBot so that it will turn the camera on at a designated time, then once again turn it off at a later time.</div>
+    <div class="image-row">
+      <img class="image-full" src="images/wetlink_penetrator.jpg" alt="Final CAD design and WetLink Penetrator detail" loading="lazy" />
+    </div>
+    <div class="caption">Figure 6: Finalized CAD design in image on the left and WetLink Penetrator on the right.</div>
 
-  <h3>Final Design</h3>
-  <p>To prototype the interactive display, we built a wooden frame using 2×4s and a TV mount, focusing on user testing to determine ideal viewing dimensions. The frame included an adjustable-height table and side/top plywood panels to reduce glare. A joystick was mounted in a position that mimicked its final intended placement.</p>
-  <p>On the software side, we used OpenCV to process and display 360° camera footage on a 2D monitor, initially prototyping with sample footage and live webcam input. The joystick served as the control interface for navigating the display.</p>
+    <div class="image-row">
+      <img class="image-65" src="images/cad_mount.jpg" alt="CAD render of internal camera mount" loading="lazy" />
+      <img class="image-35" src="images/assembled_mount.jpg" alt="Assembled mount photo" loading="lazy" />
+    </div>
+    <div class="caption">Figure 7. To maximize underwater FOV and minimize enclosure occlusion, we developed a 3D-printed mount for the camera. The lower disk houses a FingerBot to toggle power on a schedule via the Smart Life app (Bluetooth).</div>
 
-  <div class="image-row">
-    <img class="image-half" src="images/final_system.jpg" alt="Final Camera Enclosure">
-    <img class="image-half" src="images/display_station.jpg" alt="Prototype Display Setup">
-  </div>
-  <div class="caption">Figure 8. Finalized Camera System and Display Used</div>
+    <h3>Final Design</h3>
+    <p>To prototype the interactive display, we built a wooden frame using 2×4s and a TV mount, focusing on user testing to determine ideal viewing dimensions. The frame included an adjustable-height table and side/top plywood panels to reduce glare. A joystick was mounted in a position that mimicked its final intended placement.</p>
+    <p>On the software side, we used OpenCV to process and display 360° camera footage on a 2D monitor, initially prototyping with sample footage and live webcam input. The joystick served as the control interface for navigating the display.</p>
 
-  <h3>Bill of Materials</h3>
-  <div class="image-row">
-    <img class="image-full" src="images/bill_of_materials.jpg" alt="Bill of Materials Table">
-  </div>
-  <div class="caption">Figure 9. Bill of Materials outlining all key mechanical and electronic components used in the final design.</div>
+    <div class="image-row">
+      <img class="image-half" src="images/final_system.jpg" alt="Final underwater camera enclosure build" loading="lazy" />
+      <img class="image-half" src="images/display_station.jpg" alt="Prototype display station with joystick" loading="lazy" />
+    </div>
+    <div class="caption">Figure 8. Finalized Camera System and Display Used</div>
 
+    <h3>Bill of Materials</h3>
+    <div class="image-row">
+      <img class="image-full" src="images/bill_of_materials.jpg" alt="Bill of Materials table for the system" loading="lazy" />
+    </div>
+    <div class="caption">Figure 9. Bill of Materials outlining all key mechanical and electronic components used in the final design.</div>
+  </main>
 </body>
 </html>
