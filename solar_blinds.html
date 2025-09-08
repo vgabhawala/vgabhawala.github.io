@@ -2,110 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Proper mobile scaling + safe areas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Solar Powered Blinds Operator</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px auto;
-      max-width: 1000px;
-      line-height: 1.6;
+    :root{
+      --brand:#1f64b1;
+      --text:#222;
+      --maxw:1000px;
+      --pad:clamp(16px, 3.5vw, 32px);
+      --gap:16px;
     }
-    h1, h2, h3 {
-      color: #222;
+
+    /* Base */
+    html, body { height:100%; }
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin:0;
+      color:var(--text);
+      background:#fff; /* force light theme */
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
-    .caption {
-      font-style: italic;
-      text-align: center;
-      margin-top: 8px;
-      font-size: 0.95em;
+    .container{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:calc(var(--pad) + 24px) var(--pad) var(--pad);
     }
-    .back-link {
-      font-size: 1em;
-      margin-bottom: 20px;
-      display: inline-block;
-      text-decoration: none;
-      background: #eee;
-      padding: 6px 12px;
-      border-radius: 5px;
-      color: #333;
+
+    /* Back link (fixed & touch-friendly) */
+    .back-link{
+      position:fixed; inset:16px auto auto 16px;
+      z-index:1000;
+      background:rgba(255,255,255,0.9);
+      border:1px solid #e8e8e8;
+      padding:8px 12px;
+      border-radius:10px;
+      text-decoration:none; font-weight:700;
+      color:var(--brand);
+      font-size:clamp(14px, 2.5vw, 16px);
+      backdrop-filter:saturate(150%) blur(6px);
     }
-    .back-link:hover {
-      background: #ddd;
+
+    /* Type scale */
+    h1{ margin:0 0 8px; font-size:clamp(28px, 4.2vw, 40px); font-weight:800; color:#222; }
+    h2{ margin:8px 0 16px; font-size:clamp(18px, 2.6vw, 22px); font-weight:700; color:var(--brand); }
+    h3{ margin:24px 0 8px; font-size:clamp(18px, 2.4vw, 21px); font-weight:700; color:#222; }
+    p, li{ font-size:clamp(15px, 2.2vw, 17px); }
+
+    /* Media & captions */
+    img, video{ display:block; max-width:100%; height:auto; border-radius:8px; }
+    .caption{
+      font-style:italic; text-align:center;
+      margin-top:8px; font-size:clamp(13px, 2vw, 15px); color:#444;
     }
-    .wrap-container {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      flex-wrap: wrap;
+
+    /* Flexible two-column wrap that collapses on phones */
+    .wrap{
+      display:flex; flex-wrap:wrap; gap:var(--gap); align-items:flex-start;
     }
-    .wrap-text {
-      flex: 1 1 50%;
+    .wrap .col-text{ flex:1 1 52%; min-width:280px; }
+    .wrap .col-media{ flex:1 1 40%; min-width:260px; }
+
+    /* Side-by-side media row that collapses on phones */
+    .media-row{
+      display:flex; flex-wrap:wrap; gap:var(--gap); justify-content:center;
     }
-    .wrap-image {
-      flex: 1 1 45%;
-      max-width: 400px;
-    }
-    .wrap-image img {
-      width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
+    .media-row > *{ flex:1 1 320px; min-width:220px; }
+
+    /* Lists */
+    ul{ padding-left:20px; margin:0; }
+
+    /* Video block */
+    .video-wrap{ text-align:center; margin-top:20px; }
+    .video-wrap video{ width:100%; max-width:520px; }
+
+    /* Small screens: tighter padding */
+    @media (max-width:480px){
+      .container{ padding:56px 14px 18px; }
+      .back-link{ inset:12px auto auto 12px; padding:7px 10px; }
     }
   </style>
 </head>
 <body>
-  <div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
-    <a href="index.html" style="text-decoration: none; font-weight: bold; font-size: 16px; color: #1f64b1;">← Projects</a>
-  </div>
+  <a class="back-link" href="index.html" aria-label="Back to Projects">← Projects</a>
 
-  <h1>Solar Powered Blinds Operator</h1>
-  <h2 style="color:#1f64b1;">Project Timeline: October 2023 – December 2023</h2>
+  <main class="container">
+    <h1>Solar Powered Blinds Operator</h1>
+    <h2>Project Timeline: October 2023 – December 2023</h2>
 
-  <div class="wrap-container">
-    <div class="wrap-text">
-      <p>The project is a dual mode automatic and manual window blind operator. A photoresistor provides automated functionality. When a certain light intensity threshold is surpassed, the servo will automatically operate the blinds. In addition to this, the blinds can also be operated manually through an IR remote.</p>
+    <section class="wrap">
+      <div class="col-text">
+        <p>The project is a dual-mode automatic and manual window blind operator. A photoresistor provides automated functionality: when a light-intensity threshold is surpassed, the servo automatically actuates the blinds. The blinds can also be controlled manually via an IR remote.</p>
 
-      <p>This IR remote has buttons that allow the user to set the blinds at 1 of 3 preset angles, a power button to toggle between auto/manual modes, and arrows that increment the angle by 10 degrees in either direction. An Arduino is used to control the photoresistor, IR receiver, and hobby servomotor used to operate the blinds.</p>
+        <p>The IR remote includes buttons for three preset angles, a power button to toggle auto/manual modes, and arrows that adjust angle in 10° steps. An Arduino controls the photoresistor, IR receiver, and SG90 servo.</p>
 
-      <h3>Components</h3>
-      <ul>
-        <li>1x Solar Panel</li>
-        <li>1x Voltage Regulator</li>
-        <li>1x Arduino Uno</li>
-        <li>1x SG90 Servo Motor</li>
-        <li>1x IR Receiver</li>
-        <li>1x Photoresistor</li>
-      </ul>
-    </div>
+        <h3>Components</h3>
+        <ul>
+          <li>1× Solar Panel</li>
+          <li>1× Voltage Regulator</li>
+          <li>1× Arduino Uno</li>
+          <li>1× SG90 Servo Motor</li>
+          <li>1× IR Receiver</li>
+          <li>1× Photoresistor</li>
+        </ul>
+      </div>
 
-    <div class="wrap-image">
-      <img src="images/solar_blinds_circuit.jpg" alt="Circuit Diagram for Blinds Project">
-      <div class="caption">Figure 1. The circuit used to power the operator can be seen.</div>
-    </div>
-  </div>
+      <div class="col-media">
+        <figure>
+          <img src="images/solar_blinds_circuit.jpg" alt="Circuit diagram for blinds project" loading="lazy">
+          <figcaption class="caption">Figure 1. The circuit used to power the operator.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-<h3>Final Design</h3>
-<p>
-  A 3D printed casing was designed to neatly house the Arduino, IR receiver, and supporting circuitry. 
-  Additionally, a custom servo attachment was created to securely connect the servomotor to the blinds, ensuring smooth and consistent operation.
-</p>
+    <h3>Final Design</h3>
+    <p>A 3D-printed casing houses the Arduino, IR receiver, and supporting circuitry. A custom servo attachment securely couples the servomotor to the blinds for smooth, consistent operation.</p>
 
-<div style="display: flex; gap: 20px; justify-content: center;">
-  <img src="images/final_design_board.jpg" alt="Circuit" style="height: 300px; width: auto; border-radius: 4px;" />
-  <img src="images/final_design_solar.jpg" alt="Solar Panel" style="height: 300px; width: auto; border-radius: 4px;" />
-</div>
-<div style="text-align: center; font-style: italic; margin-top: 8px;">
-  Figure 2. The Final Design for the Blinds Operator
-</div>
-
-<div style="text-align: center; margin-top: 20px;">
-  <video controls style="max-width: 480px; height: auto; border-radius: 8px;">
-    <source src="videos/blinds_demo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <div style="font-style: italic; margin-top: 6px;">Video 1. Demonstration of the Blinds Operator</div>
-</div>
-
-  
-</body>
-</html>
+    <div class="media-row" style="margin-top:12px;">
+      <figure>
+        <img src="images/final_design_board.jpg" alt="Electronics board and enclosure" loading="lazy">
+      </figure>
+      <figure>
+        <img src="images/final_design_solar.jpg" alt="Solar panel mounted for the blinds operator" loading="lazy">
+      </figur
