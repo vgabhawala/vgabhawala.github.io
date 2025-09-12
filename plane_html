@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Wright Flyer Redesign – Mechanics of Flight</title>
+  <style>
+    :root{
+      --brand:#1f64b1;
+      --text:#222;
+      --maxw:1000px;
+      --pad:clamp(16px, 3.5vw, 32px);
+      --gap:16px;
+    }
+    body{
+      font-family: system-ui, Arial, sans-serif;
+      margin:0; color:var(--text); background:#fff; line-height:1.6;
+    }
+    .container{ max-width:var(--maxw); margin:0 auto; padding:calc(var(--pad) + 24px) var(--pad) var(--pad); }
+    .back-link{
+      position:fixed; inset:16px auto auto 16px; z-index:1000;
+      background:rgba(255,255,255,0.9); border:1px solid #e8e8e8;
+      padding:8px 12px; border-radius:10px; text-decoration:none;
+      font-weight:700; color:var(--brand); font-size:clamp(14px, 2.5vw, 16px);
+    }
+    h1{ margin:0 0 8px; font-size:clamp(26px, 4vw, 36px); font-weight:800; }
+    h2{ margin:8px 0 16px; font-size:clamp(18px, 2.6vw, 22px); font-weight:700; color:var(--brand); }
+    h3{ margin:24px 0 8px; font-size:clamp(18px, 2.4vw, 21px); font-weight:700; }
+    p, li{ font-size:clamp(15px, 2.2vw, 17px); }
+    img{ display:block; max-width:100%; height:auto; border-radius:8px; margin:auto; }
+    figure{ margin:0; }
+    figcaption{ font-style:italic; text-align:center; margin-top:8px; font-size:clamp(13px, 2vw, 15px); color:#444; }
+    .media-row{ display:flex; flex-wrap:wrap; gap:var(--gap); justify-content:center; margin-top:12px; }
+    .media-row .item{ flex:1 1 420px; min-width:260px; }
+    .mt-12{ margin-top:12px; }
+    .center{ text-align:center; }
+    @media(max-width:480px){ .container{ padding:56px 14px 18px; } }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-link">← Projects</a>
+  <main class="container">
+    <h1>Wright Flyer Redesign – Mechanics of Flight</h1>
+    <h2>Project Timeline: January 2024 – May 2024</h2>
+
+    <p>We recreated the Wright Flyer’s airfoil in XFLR5 and compared it with historical data. After validating the baseline model, we explored modifications to improve performance and stability, focusing on dihedral, wingtip twist, and taper ratio.</p>
+
+    <h3>Summary of Experiments</h3>
+    <ul>
+      <li><b>Dihedral:</b> Adding 3° improved roll stability with minimal change to lift or drag.</li>
+      <li><b>Wingtip Twist:</b> A 3° washout increased lift and efficiency, solving the Flyer’s lack of lift at the cost of slight drag rise.</li>
+      <li><b>Taper Ratio:</b> A taper of 0.3 shifted lift inward, raising overall lift and efficiency with minor drag impact.</li>
+    </ul>
+
+    <div class="media-row mt-12">
+      <figure class="item">
+        <img src="images/dihedral_3deg.jpg" alt="Dihedral modification" loading="lazy">
+        <figcaption>Dihedral improved roll stability.</figcaption>
+      </figure>
+      <figure class="item">
+        <img src="images/twist_3deg.jpg" alt="Wingtip twist modification" loading="lazy">
+        <figcaption>Twist increased lift and Cl/Cd.</figcaption>
+      </figure>
+      <figure class="item">
+        <img src="images/taper_0p3.jpg" alt="Taper modification" loading="lazy">
+        <figcaption>Taper raised lift with small drag effect.</figcaption>
+      </figure>
+    </div>
+
+    <h3>Final Design</h3>
+    <p>The combined design generated more lift and improved pitch stability, but also produced higher drag and a reduced cruise efficiency. This tradeoff mirrored early aircraft design challenges: improving control and lift often came at the cost of speed and efficiency.</p>
+
+    <div class="media-row">
+      <figure class="item">
+        <img src="images/final_redesign.jpg" alt="Final redesign" loading="lazy">
+        <figcaption>Final design combining all three changes.</figcaption>
+      </figure>
+      <figure class="item">
+        <img src="images/final_polars.jpg" alt="Final performance polars" loading="lazy">
+        <figcaption>Lift ↑, stability ↑, drag ↑, efficiency ↓.</figcaption>
+      </figure>
+    </div>
+
+    <p class="center mt-12"><small>Course: 530.425 Mechanics of Flight • Tools: XFLR5, CAD • Team: Vedant Gabhawala, Jason Zhong</small></p>
+  </main>
+</body>
+</html>
