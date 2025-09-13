@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Proper mobile scaling + safe areas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Bottle Rocket – Dynamics Lab</title>
+  <style>
+    :root{
+      --brand:#1f64b1;
+      --text:#222;
+      --maxw:1000px;
+      --pad:clamp(16px, 3.5vw, 32px);
+      --gap:16px;
+    }
+    /* Base */
+    html, body { height:100%; }
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin:0; color:var(--text); background:#fff; line-height:1.6;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .container{ max-width:var(--maxw); margin:0 auto; padding:calc(var(--pad) + 24px) var(--pad) var(--pad); }
+    /* Back link */
+    .back-link{
+      position:fixed; inset:16px auto auto 16px; z-index:1000;
+      background:rgba(255,255,255,0.9); border:1px solid #e8e8e8;
+      padding:8px 12px; border-radius:10px; text-decoration:none; font-weight:700;
+      color:var(--brand); font-size:clamp(14px, 2.5vw, 16px); backdrop-filter:saturate(150%) blur(6px);
+    }
+    /* Type scale */
+    h1{ margin:0 0 8px; font-size:clamp(28px, 4vw, 36px); font-weight:800; }
+    h2{ margin:8px 0 16px; font-size:clamp(18px, 2.6vw, 22px); font-weight:700; color:var(--brand); }
+    h3{ margin:24px 0 8px; font-size:clamp(18px, 2.4vw, 21px); font-weight:700; }
+    h4{ margin:18px 0 6px; font-weight:700; }
+    p, li{ font-size:clamp(15px, 2.2vw, 17px); }
+    /* Media & captions */
+    img{ display:block; max-width:100%; height:auto; border-radius:8px; margin:auto; }
+    figure{ margin:0; }
+    figcaption{ font-style:italic; text-align:center; margin-top:8px; font-size:clamp(13px, 2vw, 15px); color:#444; }
+    .media-row{ display:flex; flex-wrap:wrap; gap:var(--gap); justify-content:center; margin-top:12px; }
+    .media-row .item{ flex:1 1 420px; min-width:260px; }
+    /* Equation block */
+    .equation{
+      background:#f7f7f7; padding:12px; border-radius:8px; margin:8px 0;
+      font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
+      overflow:auto; -webkit-overflow-scrolling:touch; white-space:pre-wrap;
+    }
+    /* Small screens */
+    @media (max-width:480px){
+      .container{ padding:56px 14px 18px; }
+      .back-link{ inset:12px auto auto 12px; padding:7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-link" aria-label="Back to Projects">← Projects</a>
+
+  <main class="container">
+    <h1>Bottle Rocket – Dynamics Laboratory</h1>
+    <h2>Project Timeline: January 2022 – April 2022</h2>
+
+    <!-- Introduction -->
+    <h3>Introduction</h3>
+    <p>We compared theoretically computed rocket trajectories with actual launch data to evaluate the limits of MATLAB-based kinematics/dynamics models in real-world conditions.</p>
+
+    <!-- Materials and Methods -->
+    <h3>Materials and Methods</h3>
+    <p>1.5 L bottle, water, rubber plug, air pump, plastic fins, nose cone, altimeter. Bottles were partially filled, pressurized, and released; an altimeter in the nose recorded peak altitude. Measured geometry: nozzle Ø 18 mm, bottle Ø 80 mm, length 250 mm.</p>
+
+    <!-- Theoretical Calculations -->
+    <h3>Theoretical Calculations</h3>
+    <p>Key relations used for exit velocity, mass flow, drag, thrust, and motion integration:</p>
+    <div class="equation">
+v_exit = √( 2 (P₁ − P₂) / ρ )
+ṁ = ρ · v_exit · A_nozzle
+F_D = ½ · ρ_air · C_D · A_ref · v²
+F_T = P · A_nozzle
+F_net = F_T − (m_bottle + m_water − ṁ·t) g − F_D
+a = F_net / (m_bottle + m_water)
+v_t = v_{t−Δt} + a Δt
+s_t = s_{t−Δt} + v_t Δt
+    </div>
+    <p>Estimated C<sub>D</sub> varied between ~0.345–0.379 across flight phases (coast/descent). MATLAB stepped the dynamics until apogee.</p>
+
+    <!-- Theoretical Trials -->
+    <h3>Trial 1 (Theory)</h3>
+    <p><b>40 psi, 150 mL</b> → Max thrust ≈ <b>70.2 N</b>, peak altitude ≈ <b>32 m</b>, thrust duration ≈ <b>0.505 s</b>.</p>
+    <div class="media-row">
+      <figure class="item">
+        <img src="images/rocket_theory_1.jpg" alt="Trial 1 theoretical trajectory" loading="lazy">
+        <figcaption>Figure T1. Theoretical trajectory (Trial 1).</figcaption>
+      </figure>
+    </div>
+
+    <h3>Trial 2 (Theory)</h3>
+    <p><b>32 psi, 200 mL</b> → Max thrust ≈ <b>56.14 N</b>, peak altitude ≈ <b>31.5 m</b>, thrust duration ≈ <b>0.619 s</b>.</p>
+    <div class="media-row">
+      <figure class="item">
+        <img src="images/rocket_theory_2.jpg" alt="Trial 2 theoretical trajectory" loading="lazy">
+        <figcaption>Figure T2. Theoretical trajectory (Trial 2).</figcaption>
+      </figure>
+    </div>
+
+    <h3>Trial 3 (Theory)</h3>
+    <p><b>45 psi, 250 mL</b> → Max thrust ≈ <b>78.95 N</b>, peak altitude ≈ <b>37.9 m</b>, thrust duration ≈ <b>0.619 s</b>.</p>
+    <div class="media-row">
+      <figure class="item">
+        <img src="images/rocket_theory_3.jpg" alt="Trial 3 theoretical trajectory" loading="lazy">
+        <figcaption>Figure T3. Theoretical trajectory (Trial 3).</figcaption>
+      </figure>
+    </div>
+
+    <!-- Experimental Results -->
+    <h3>Experimental Results</h3>
+    <h4>Trial 1 (40 psi, 150 mL)</h4>
+    <p>Peak altitude ≈ <b>29.57 m</b>; thrust active ≈ <b>0.51 s</b>. (Reported max thrust entry ≈ 70.2 N.)</p>
+    <div class="media-row">
+      <figure class="item">
+        <img src="images/rocket_altimeter_1.jpg" alt="Trial 1 altimeter data" loading="lazy">
+        <figcaption>Figure E1. Altimeter trajectory (Trial 1).</figcaption>
+      </figure>
+    </div>
+
+    <h4>Trial 2 (32 psi, 200 mL)</h4>
+    <p>Peak altitude ≈ <b>30.48 m</b>; thrust active ≈ <b>0.72 s</b>. (Reported max thrust entry ≈ 70.2 N.)</p>
+    <div class="media-row">
+      <figure class="item">
+        <img src="images/rocket_altimeter_2.jpg" alt="Trial 2 altimeter data" loading="lazy">
+        <figcaption>Figure E2. Altimeter trajectory (Trial 2).</figcaption>
+      </figure>
+    </div>
+
+    <h4>Trial 3 (45 psi, 250 mL)</h4>
+    <p>Peak altitude ≈ <b>35.5 m</b>; thrust active ≈ <b>0.72 s</b>. (Reported max thrust entry ≈ 78.95 N.)</p>
+    <div class="media-row">
+      <figure class="item">
+        <img src="images/rocket_altimeter_3.jpg" alt="Trial 3 altimeter data" loading="lazy">
+        <figcaption>Figure E3. Altimeter trajectory (Trial 3).</figcaption>
+      </figure>
+    </div>
+
+    <!-- Discussion -->
+    <h3>Discussion</h3>
+    <p>Apogees were within ~10% of theory across all trials; flight times (~6 s total) broadly agreed. Differences stem from uncertain C<sub>D</sub>, changing cross-section during descent, wind, and the model’s assumption of constant internal pressure (real pressure decays as water volume changes), which lengthened thrust in experiments.</p>
+
+    <!-- Appendix -->
+    <h3>Appendix</h3>
+    <p>Early attempts estimated mass flow rate (ṁ) from steep trajectory segments and time-to-empty, yielding an unrealistically low value (~0.968 kg/s). Recomputing via Bernoulli gave ṁ ≈ 5.24 kg/s and much closer agreement to flight data. C<sub>D</sub> values were selected from literature and tuned per phase to reflect observed behavior.</p>
+
+    <!-- Citations -->
+    <h3>Citations</h3>
+    <ul>
+      <li>Drag coefficient formulations and references; 2 L bottle dimensions; Bernoulli’s principle primer; water-rocket background resources.</li>
+    </ul>
+
+    <p style="text-align:center; margin-top:16px;">
+      <small>Course: 530.212 MechE Dynamics Laboratory • Team: Jason Zhong, Vedant Gabhawala, Michael Chacon, Vedant Gabhawala</small>
+    </p>
+  </main>
+</body>
+</html>
