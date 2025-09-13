@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Electronics & Instrumentation – Peak & Trough Detector</title>
+  <style>
+    :root{
+      --brand:#1f64b1;
+      --text:#222;
+      --maxw:1000px;
+      --pad:clamp(16px, 3.5vw, 32px);
+      --gap:16px;
+    }
+    body{
+      font-family: system-ui, Arial, sans-serif;
+      margin:0; color:var(--text); background:#fff; line-height:1.6;
+    }
+    .container{ max-width:var(--maxw); margin:0 auto; padding:calc(var(--pad) + 24px) var(--pad) var(--pad); }
+    .back-link{
+      position:fixed; inset:16px auto auto 16px; z-index:1000;
+      background:rgba(255,255,255,0.9); border:1px solid #e8e8e8;
+      padding:8px 12px; border-radius:10px; text-decoration:none;
+      font-weight:700; color:var(--brand); font-size:clamp(14px, 2.5vw, 16px);
+    }
+    h1{ margin:0 0 8px; font-size:clamp(26px, 4vw, 36px); font-weight:800; }
+    h2{ margin:8px 0 16px; font-size:clamp(18px, 2.6vw, 22px); font-weight:700; color:var(--brand); }
+    h3{ margin:24px 0 8px; font-size:clamp(18px, 2.4vw, 21px); font-weight:700; }
+    p, li{ font-size:clamp(15px, 2.2vw, 17px); }
+    img{ display:block; max-width:100%; height:auto; border-radius:8px; margin:auto; }
+    figure{ margin:0; }
+    figcaption{ font-style:italic; text-align:center; margin-top:8px; font-size:clamp(13px, 2vw, 15px); color:#444; }
+    .media-row{ display:flex; flex-wrap:wrap; gap:var(--gap); justify-content:center; margin-top:12px; }
+    .media-row .item{ flex:1 1 420px; min-width:260px; }
+    .equation{
+      background:#f7f7f7;
+      padding:12px;
+      font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
+      margin:8px 0;
+      border-radius:8px;
+      overflow:auto;
+      -webkit-overflow-scrolling:touch;
+      white-space:pre-wrap;
+    }
+    .center{ text-align:center; }
+    @media(max-width:480px){ .container{ padding:56px 14px 18px; } }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-link" aria-label="Back to Projects">← Projects</a>
+
+  <main class="container">
+    <h1>Electronics & Instrumentation – Peak & Trough Detector</h1>
+    <h2>Project Timeline: Fall 2023</h2>
+
+    <p>In this project, we designed and fabricated a circuit that tracks the high and low voltage extremes from a temperature sensor. Such a device has applications in vaccine storage, wine and food preservation, and any setting where monitoring maximum and minimum temperatures is critical.</p>
+
+    <h3>Concept & Design</h3>
+    <p>A potentiometer simulated the varying temperature input. Using op-amps, diodes, and capacitors, the circuit stored peak (maximum) and trough (minimum) voltages. Separate reset buttons allowed users to clear each stored value. TinkerCAD was used to test different capacitor values before physical implementation.</p>
+
+    <div class="media-row">
+      <figure class="item">
+        <img src="images/circuit_tinkercad.jpg" alt="TinkerCAD circuit setup" loading="lazy">
+        <figcaption>Figure 1. TinkerCAD simulation of the circuit.</figcaption>
+      </figure>
+      <figure class="item">
+        <img src="images/opamp_chip.jpg" alt="LM248 Quad Op-Amp Chip" loading="lazy">
+        <figcaption>Figure 2. LM248 Quad Op-Amp used for implementation.</figcaption>
+      </figure>
+    </div>
+
+    <h3>Calculations</h3>
+    <p>To size the capacitor for stable voltage storage, we used the standard RC time constant:</p>
+    <div class="equation">
+    τ = R × C
+    </div>
+    <p>Where:</p>
+    <ul>
+      <li><i>τ</i> = time constant (s)</li>
+      <li><i>R</i> = resistance in the charging path (Ω)</li>
+      <li><i>C</i> = capacitance (F)</li>
+    </ul>
+    <p>To ensure the stored voltage held long enough for observation, we set:</p>
+    <div class="equation">
+    τ ≥ 5 × t<sub>hold</sub>
+    </div>
+    <p>Initial estimates used <i>C = 1 µF</i>, but experimental testing showed that much higher values (≈1.5 mF) were required to prevent discharge through leakage and diode forward currents.</p>
+
+    <h3>Performance</h3>
+    <p>Oscilloscope testing confirmed accurate measurement of both peak and trough voltages. Reset buttons correctly returned stored voltages to baseline values. Higher capacitance than initially estimated was required (1 µF → 1.5 mF) to stabilize voltage storage.</p>
+
+    <div class="media-row">
+      <figure class="item">
+        <img src="images/oscilloscope_peak.jpg" alt="Oscilloscope peak voltage" loading="lazy">
+        <figcaption>Figure 3. Oscilloscope showing detected peak voltage.</figcaption>
+      </figure>
+      <figure class="item">
+        <img src="images/oscilloscope_trough.jpg" alt="Oscilloscope trough voltage" loading="lazy">
+        <figcaption>Figure 4. Oscilloscope showing detected trough voltage.</figcaption>
+      </figure>
+    </div>
+
+    <h3>Lessons Learned</h3>
+    <ul>
+      <li>TinkerCAD simulations accelerated troubleshooting and design validation.</li>
+      <li>Hardware issues mostly arose from diode failures, requiring replacements.</li>
+      <li>Capacitor choice was critical; higher capacitance improved stability.</li>
+      <li>Best performance was achieved when capacitors were referenced to ±5V rather than ground.</li>
+    </ul>
+
+    <p class="center"><small>Team: Alex Ren, Michael Chacon, Andrew Palacio, Vedant Gabhawala • Course: Electronics & Instrumentation</small></p>
+  </main>
+</body>
+</html>
