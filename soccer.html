@@ -2,25 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Proper mobile scaling + safe area on modern phones -->
+  <!-- Proper mobile scaling + safe areas -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Desktop Soccer Game</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
   <style>
     :root{
       --brand:#1f64b1;
-      --text:#111;
+      --text:#222;
       --maxw:900px;
       --pad:clamp(16px, 3.5vw, 32px);
+      --gap:16px;
     }
 
     /* Base */
-    html, body { height: 100%; }
+    html, body { height:100%; }
     body{
-      font-family:'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       margin:0;
       color:var(--text);
-      background:#fff; /* force light background */
+      background:#fff; /* force light theme */
+      line-height:1.6;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
     }
@@ -30,13 +31,7 @@
       padding:calc(var(--pad) + 24px) var(--pad) var(--pad);
     }
 
-    /* Headings & text sizes scale with screen */
-    h1{ font-weight:600; font-size:clamp(28px, 4.2vw, 40px); margin:0 0 6px; }
-    h2{ font-weight:600; font-size:clamp(18px, 2.6vw, 22px); margin:8px 0 0; }
-    h3{ font-weight:500; font-size:clamp(18px, 2.4vw, 21px); margin:28px 0 8px; }
-    p, li{ font-size:clamp(15px, 2.2vw, 17px); line-height:1.6; }
-
-    /* Back link (touch friendly) */
+    /* Back link (fixed & touch-friendly) */
     .back-link{
       position:fixed; inset:16px auto auto 16px;
       z-index:1000;
@@ -44,22 +39,29 @@
       border:1px solid #e8e8e8;
       padding:8px 12px;
       border-radius:10px;
-      text-decoration:none; font-weight:700; font-size:clamp(14px, 2.5vw, 16px);
+      text-decoration:none; font-weight:700;
       color:var(--brand);
+      font-size:clamp(14px, 2.5vw, 16px);
       backdrop-filter:saturate(150%) blur(6px);
     }
 
-    /* Media defaults */
+    /* Type scale */
+    h1{ margin:0 0 8px; font-size:clamp(28px, 4.2vw, 40px); font-weight:800; }
+    h2{ margin:8px 0 16px; font-size:clamp(18px, 2.6vw, 22px); font-weight:700; color:var(--brand); }
+    h3{ margin:24px 0 8px; font-size:clamp(18px, 2.4vw, 21px); font-weight:700; }
+    p, li{ font-size:clamp(15px, 2.2vw, 17px); }
+
+    /* Media & captions */
     img, video{ display:block; max-width:100%; height:auto; border-radius:8px; }
     figure{ margin:0; }
     figcaption, .caption{
-      font-size:clamp(12px, 2vw, 13px);
-      color:#555; text-align:center; margin-top:6px;
+      font-style:italic; text-align:center;
+      margin-top:8px; font-size:clamp(13px, 2vw, 15px); color:#444;
     }
 
     /* Flexible media+text block */
     .figure-flex{
-      display:flex; flex-wrap:wrap; gap:16px; margin:24px 0;
+      display:flex; flex-wrap:wrap; gap:var(--gap); margin:24px 0;
       align-items:flex-start;
     }
     .f-col{ flex:1 1 320px; min-width:260px; }
@@ -67,7 +69,8 @@
 
     /* Side-by-side gallery that collapses on phones */
     .side-by-side{
-      display:flex; flex-wrap:wrap; gap:16px; margin-top:20px;
+      display:flex; flex-wrap:wrap; gap:var(--gap); margin-top:20px;
+      justify-content:center;
     }
     .side-by-side figure{ flex:1 1 320px; min-width:260px; text-align:center; }
 
@@ -77,7 +80,7 @@
     /* Lists */
     ul{ padding-left:20px; margin:0; }
 
-    /* Small screens: tighten padding a bit */
+    /* Small screens: tighter padding */
     @media (max-width:480px){
       .container{ padding:56px 14px 18px; }
       .back-link{ inset:12px auto auto 12px; padding:7px 10px; }
@@ -89,70 +92,59 @@
 
   <main class="container">
     <h1>Desktop Soccer Game</h1>
-    <h3>Project Timeline: March 2024 – May 2024</h3>
+    <h2>Project Timeline: March 2024 – May 2024</h2>
 
-    <p>This project aimed to create a desktop-scale soccer game that combines mechatronics, mechanical design and user interactivity. 
-       The game simulates a mini soccer field where a user-controlled kicker competes against a moving goalkeeper, mounted on a linear actuator. 
-       It provided a hands-on opportunity to integrate design, fabrication, and programming skills in a playful, engaging format.</p>
+    <p>This desktop-scale soccer game combines mechatronics and mechanical design: a user-controlled kicker shoots against a moving goalkeeper on a linear actuator. The build emphasized quick prototyping, clean integration, and playful interaction.</p>
 
     <h3>Components</h3>
     <div class="figure-flex">
       <div class="f-col">
         <ul>
-          <li>1× Arduino Uno</li>
-          <li>1× HiLetgo L298N Motor Driver</li>
-          <li>1× NEMA11 stepper motor Linear Rail Actuator</li>
-          <li>1× Gikfun 2" 4Ω 3W Speaker</li>
-          <li>1× 3D Printed Flexible Kicker Mechanism</li>
-          <li>1× Laser-Cut Game Base and Structure</li>
-          <li>1× LED Display</li>
-          <li>1× Goal Frame with printed goalkeeper</li>
-          <li>1× Breadboard</li>
-          <li>Jumper wires, resistors, capacitors</li>
-          <li>Power supply (5V for logic, 12V for actuator)</li>
+          <li>Arduino Uno</li>
+          <li>HiLetgo L298N Motor Driver</li>
+          <li>NEMA11 Stepper Linear Rail Actuator</li>
+          <li>Gikfun 2&quot; 4Ω 3W Speaker</li>
+          <li>3D-Printed Flexible Kicker Mechanism</li>
+          <li>Laser-Cut Base & Structure</li>
+          <li>LED Display</li>
+          <li>Goal Frame with printed goalkeeper</li>
+          <li>Breadboard + jumper wires, resistors, capacitors</li>
+          <li>Power: 5V (logic), 12V (actuator)</li>
         </ul>
       </div>
       <div class="f-col f-media">
         <figure>
-          <img src="images/soccer_sketch.png" alt="Sketch of Proposed Idea" loading="lazy" />
-          <figcaption>Figure 1. Sketch of Proposed Idea</figcaption>
+          <img src="images/soccer_sketch.png" alt="Sketch of proposed idea" loading="lazy" />
+          <figcaption>Figure 1. Sketch of proposed idea.</figcaption>
         </figure>
       </div>
     </div>
 
     <div class="side-by-side">
       <figure>
-        <img src="images/cardboard_design.jpg" alt="Cardboard Design" loading="lazy" />
-        <figcaption>Figure 2. Cardboard Design</figcaption>
+        <img src="images/cardboard_design.jpg" alt="Cardboard prototype" loading="lazy" />
+        <figcaption>Figure 2. Cardboard prototype.</figcaption>
       </figure>
       <figure>
-        <img src="images/final_design_frame.jpg" alt="Final Design Using Desktop" loading="lazy" />
-        <figcaption>Figure 3. Final Design Using Desktop</figcaption>
+        <img src="images/final_design_frame.jpg" alt="Final design on desktop" loading="lazy" />
+        <figcaption>Figure 3. Final design on desktop.</figcaption>
       </figure>
     </div>
 
     <h3>Ideation</h3>
-    <p>The original goal for the desktop soccer game was to create a fully portable and compact system that could be easily set up and played anywhere. 
-       To test this, I initially constructed a standalone base using cardboard. By using the desk itself as the foundation for the game, I eliminated the need 
-       for a bulky base and reduced the total number of components, resulting in a cleaner, more minimal footprint.</p>
+    <p>To keep the footprint minimal and setup fast, the desk became the foundation instead of a bulky base. Early cardboard trials validated joystick ergonomics and goal placement before committing to prints and laser-cut parts.</p>
 
     <h3>Design Process</h3>
-    <p>The final design featured a 3D printed kicking mechanism and a ball holder base to keep the ball in place before each kick. After testing various materials, 
-       TPU (Thermoplastic Polyurethane) was chosen for its flexibility and durability. The kicker’s infill density was reduced to enhance its springiness and improve 
-       shot power. The goal was also 3D printed and designed to align with the actuator-driven goalkeeper. Field boundaries were laser cut from acrylic, allowing for 
-       quick assembly and a clean, portable design.</p>
+    <p>The kicker and ball holder were 3D-printed. TPU was selected for flexibility and durability; reduced infill increased springiness and shot power. The goal was designed to align with the actuator-driven goalkeeper. Acrylic field boundaries enabled quick assembly and a clean look.</p>
 
     <video class="video-full" controls playsinline preload="metadata">
       <source src="videos/soccer_test.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <div class="caption">Video 1. Prototype Tested</div>
+    <div class="caption">Video 1. Prototype test.</div>
 
     <h3>Electronics Added</h3>
-    <p>To support two-player gameplay, the system included an electronic scoreboard powered by an Arduino Uno and displayed on an LCD screen. A custom 3D printed 
-       enclosure housed a set of mechanical buttons that allowed players to manually increase their score or reset it at any time. The buttons were wired to the 
-       Arduino, which updated the screen in real time. The modular casing made it easy to service or modify the electronics, and the Arduino-based system allowed 
-       for future expansion—such as adding automatic scoring or sound feedback.</p>
+    <p>A two-player scoreboard uses an Arduino-driven LCD. A printed enclosure houses mechanical buttons to increment/reset scores. The modular casing simplifies service and future features (automatic scoring, sound feedback).</p>
 
     <div class="side-by-side">
       <figure>
@@ -160,24 +152,22 @@
           <source src="videos/scoreboard.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <figcaption>Video 2. Working of Scoreboard</figcaption>
+        <figcaption>Video 2. Scoreboard demo.</figcaption>
       </figure>
       <figure>
-        <img src="images/circuit_scoreboard.png" alt="Circuit for Scoreboard" loading="lazy" />
-        <figcaption>Figure 4. Circuit for Scoreboard</figcaption>
+        <img src="images/circuit_scoreboard.png" alt="Scoreboard circuit" loading="lazy" />
+        <figcaption>Figure 4. Scoreboard circuit.</figcaption>
       </figure>
     </div>
 
     <h3>Goalkeeper Integration</h3>
-    <p>To add a dynamic challenge to the game, a linear actuator was installed behind the goalpost, controlled by a motor driver and programmed to move the goalkeeper 
-       back and forth at random intervals. This movement made scoring more difficult and added an unpredictable, interactive element to each play. The actuator was 
-       synchronized with the rest of the system using the Arduino, ensuring reliable and responsive motion.</p>
+    <p>The linear actuator behind the goal sweeps the goalkeeper at random intervals via motor driver control, raising difficulty and adding unpredictability. Motion is synchronized through the Arduino for responsive gameplay.</p>
 
     <video class="video-full" controls playsinline preload="metadata">
       <source src="videos/actuator.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <div class="caption">Video 3. Final Design with Linear Actuator</div>
+    <div class="caption">Video 3. Goalkeeper with linear actuator.</div>
   </main>
 </body>
 </html>
