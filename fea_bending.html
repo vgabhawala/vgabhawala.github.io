@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Proper mobile scaling + safe areas -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Credit Card Bending Machine Design</title>
   <style>
@@ -20,7 +19,7 @@
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       margin:0;
       color:var(--text);
-      background:#fff; /* force light theme */
+      background:#fff;
       line-height:1.6;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
@@ -31,7 +30,7 @@
       padding:calc(var(--pad) + 24px) var(--pad) var(--pad);
     }
 
-    /* Back link (fixed & touch-friendly) */
+    /* Back link */
     .back-link{
       position:fixed; inset:16px auto auto 16px;
       z-index:1000;
@@ -60,30 +59,31 @@
       margin-top:8px; font-size:clamp(13px, 2vw, 15px); color:#444;
     }
 
-    /* Flexible media grids that collapse on phones */
+    /* Flexible media grids */
     .wrap{ display:flex; flex-wrap:wrap; gap:var(--gap); justify-content:center; align-items:flex-start; }
     .wrap .col{ flex:1 1 45%; min-width:260px; max-width:420px; }
 
     .gallery{ display:flex; flex-wrap:wrap; gap:30px; justify-content:center; margin-top:20px; }
     .gallery .item{ flex:1 1 380px; max-width:400px; }
 
-    /* Components list (two columns on desktop, one on mobile) */
-    .lists{ display:flex; flex-wrap:wrap; gap:var(--gap); }
-    .lists ul{ flex:1 1 380px; min-width:260px; margin:0; padding-left:20px; }
+    /* WIDE variant for full-width CAD (Figure 1) */
+    .gallery .item.wide{ flex:1 1 100%; max-width:none; }
+    .gallery .item.wide img{ width:100%; height:auto; }
 
-    /* Equations: readable on mobile */
+    /* Optional: give all gallery images a consistent max height on very tall/narrow assets */
+    .gallery img{ max-height:100vh; object-fit:contain; background:#fff; }
+
+    /* Equations */
     .equation{
       background:#f7f7f7;
       padding:12px;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
       margin:8px 0;
       border-radius:8px;
-      overflow:auto;
-      -webkit-overflow-scrolling:touch;
-      white-space:pre-wrap;
+      overflow:auto; white-space:pre-wrap;
     }
 
-    /* Small screens: tighter padding */
+    /* Small screens */
     @media (max-width:480px){
       .container{ padding:56px 14px 18px; }
       .back-link{ inset:12px auto auto 12px; padding:7px 10px; }
@@ -91,7 +91,6 @@
   </style>
 </head>
 <body>
-
   <a href="index.html" class="back-link" aria-label="Back to Projects">← Projects</a>
 
   <main class="container">
@@ -101,8 +100,8 @@
     <p>This project involved designing a custom credit card bending machine to replicate and test the failure conditions experienced by physical cards during repeated flexing. The setup consisted of a card holder, linear actuator with clamp, load cell, and base plate, all laid out for precise alignment and controlled force application. The user inserts the card into the slot of the card holder, after which the linear actuator is positioned to match the slot height. A custom clamp is then attached to the exposed portion of the card, allowing the actuator to apply a repeatable bending force.</p>
 
     <h3>Components</h3>
-    <div class="lists">
-      <ul>
+    <div class="lists" style="display:flex; flex-wrap:wrap; gap:var(--gap);">
+      <ul style="flex:1 1 380px; min-width:260px; margin:0; padding-left:20px;">
         <li>1× Custom Actuator</li>
         <li>1× Custom Cross Head</li>
         <li>Polyurethane Clamp Surface</li>
@@ -112,19 +111,20 @@
 
     <h3>Design Sketch and CAD</h3>
     <div class="gallery">
-        <figure class="item">
+      <!-- FIGURE 1: Full-width CAD image (replace src with your file path) -->
+      <figure class="item wide">
         <img src="images/creditcard_cad.jpg" alt="CAD of the bending machine" loading="lazy">
         <figcaption>Figure 1. The CAD for the machine</figcaption>
       </figure>
+
+      <!-- FIGURE 2: Sketch stays in normal column width -->
       <figure class="item">
         <img src="images/creditcard_sketch.jpg" alt="Sketch of the bending machine" loading="lazy">
         <figcaption>Figure 2. The sketch for the machine</figcaption>
       </figure>
-
     </div>
 
     <h3>Calculations</h3>
-
     <h4>Defining the Variables</h4>
     <p><i>F</i> = Point Force on Credit Card<br>
       <i>σ<sub>y</sub></i> = Yield Strength of 316L Stainless Steel<br>
@@ -164,8 +164,6 @@ F = (2·σ·I) / (t·L)
     <div class="equation">
 F = 27.588 N
     </div>
-
-    <p>This calculation was conducted with a safety factor of 1.</p>
 
     <figure class="wrap" style="margin-top:8px;">
       <div class="col" style="flex:1 1 600px; max-width:600px;">
